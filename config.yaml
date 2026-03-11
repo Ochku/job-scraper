@@ -1,0 +1,42 @@
+# ============================================================
+#  Job Alert Configuration
+# ============================================================
+
+# --- Search settings ----------------------------------------
+search:
+  keywords:
+    - "machine learning engineer"
+    - "data scientist"
+    # Add as many as you like
+  location: "Amsterdam, Netherlands"
+  radius_km: 50          # search radius around the location
+  max_results_per_source: 25
+  remote_ok: true        # include remote jobs
+
+# --- Sources to enable --------------------------------------
+sources:
+  rss: true            # Indeed (international + NL) via RSS — no key needed
+  adzuna: true          # requires ADZUNA_APP_ID + ADZUNA_API_KEY in .env
+  remotive: false       # remote-only jobs, disable if not wanted
+
+# --- Email alert settings -----------------------------------
+email:
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 587
+  use_tls: true
+  sender: "your_email@gmail.com"      # your sending address
+  recipients:
+    - "your_email@gmail.com"          # who gets the alerts
+  subject_prefix: "[Job Alert]"
+  min_jobs_to_send: 1                 # only send if at least N new jobs found
+
+# --- Filters (optional) -------------------------------------
+filters:
+  # Skip jobs whose title contains these words (case-insensitive)
+  exclude_title_keywords:
+    - "senior principal"
+    - "director"
+  # Only include jobs with salary info? (set to false to include all)
+  require_salary: false
+  # Minimum days since job was posted (set to 0 for all)
+  max_age_days: 7
